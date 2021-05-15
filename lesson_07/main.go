@@ -14,6 +14,11 @@ type runner interface {
 	run()
 }
 
+func action(a animal) {
+	a.walk()
+	a.run()
+}
+
 type cat struct{}
 
 func (c *cat) walk() {
@@ -33,11 +38,9 @@ func (c *dog) run() {
 }
 
 func main() {
-	var c *cat = &cat{}
-	var d *dog = &dog{}
+	var c = &cat{}
+	var d = &dog{}
 
-	c.walk()
-	c.run()
-	d.walk()
-	d.run()
+	action(c)
+	action(d)
 }
